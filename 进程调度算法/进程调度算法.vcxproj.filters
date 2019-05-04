@@ -15,15 +15,15 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\OperatingSystem_Algorithm\PCB.h">
+    <ClInclude Include="PCB.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="..\OperatingSystem_Algorithm\PCB.cpp">
+    <ClCompile Include="PCB.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
-    <ClCompile Include="..\OperatingSystem_Algorithm\test.cpp">
+    <ClCompile Include="test.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
