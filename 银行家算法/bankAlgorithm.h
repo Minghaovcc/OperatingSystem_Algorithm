@@ -4,8 +4,6 @@
 @author  : 渠继涵
 @time    : 2019/05/06 19:15
 **************************************************/
-
-
 #ifndef BANKALGORITHM_H
 #define BANKALGORITHM_H
 
@@ -17,10 +15,6 @@ public:
 	bankAlgorithm();//构造函数
 	void sendRequest();	//资源申请函数
 	bool safetyCheck();	//安全检查函数
-	//显示函数（显示头部）
-	void dispHead();
-	//显示函数（显示细节）
-	void dispBody();	
 	void disp();
 private:
 

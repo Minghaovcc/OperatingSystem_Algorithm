@@ -9,7 +9,7 @@ int PCB::size = 0;
 list<PCB*> PCB::pcb_list;
 
 
-
+void init(int num);
 
 int main() {
 	//输入进程个数

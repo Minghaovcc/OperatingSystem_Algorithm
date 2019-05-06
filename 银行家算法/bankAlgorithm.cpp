@@ -9,6 +9,8 @@
 #include <iostream>
 using namespace std;
 
+
+//构造函数
 bankAlgorithm::bankAlgorithm() {
 	int available[resourceNum] = { 3,3,2 };
 	int max[processNum][resourceNum] = { {7,5,3},{3,2,2},{9,0,2},{2,2,2},{4,3,3} };
@@ -62,24 +64,57 @@ void bankAlgorithm::sendRequest() {
 }
 //安全检查函数
 bool bankAlgorithm::safetyCheck() {
+	bool key;	//步骤跳转临时变量
+	bool isFinial = false;	//是否完成变量
+	int process = processNum-1;	//进程循环检查变量
+	int finishedProcess = 0;
 	//初始化完成数组
 	for (int i = 0; i < processNum; i++) {finish[i] = false;}
 	//初始化工作数组
 	for (int i = 0; i < resourceNum; i++) { work[i] = available[i]; }
 
+	while (process >= 0) {
+
+		//第一步，找到一个未完成且need<work的进程
+		if (!finish[process]) {
+			for (int i = 0; i < resourceNum; i++) {
+				if (work[i] < need[process][i]) {
+					key = true;
+				}
+			}
+		}
 
 
+		//第二步，进程状态设置为true，且将进程的资源还给work
+		if (key) {
+			for (int i = 0; i < resourceNum; i++) {
+				work[i] = work[i] + allocation[process][i];
+				finish[i] = true;
+			}
+			process = processNum;
+		}
+		process--;
+	}
 
+	//第三步
+	for (int i = 0; i < processNum; i++) {
+		if (finish[i]) {
+			finishedProcess++;
+		}
+	}
+	if (finishedProcess = processNum) {
+		isFinial = true;
+	}
 
-
+	
+	return isFinial;
 }
 //显示函数
-
-
-
 void bankAlgorithm::disp() {
-	cout << "___________________________________________________" << endl;
-	cout << "|  资源|   Max   | Allocation |  Need  | Available |" << endl;
-	cout << "|进程  |   Max   | Allocation |  Need  | Available |" << endl;
-	cout << "---------------------------------------------------" << endl;
+	
+}
+
+
+int main() {
+	cout << "hello";
 }
