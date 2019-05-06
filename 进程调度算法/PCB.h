@@ -13,10 +13,15 @@ public:
 	void disp();	//显示当前进程的信息
 
 	static int size;	//队列中的进程数量
-	static void run();	//运行当前进程队列
 	static list<PCB*> pcb_list;	//进程队列
 	static void disp_list();	//显示所有队列的信息
 	static bool compare_pcb(const PCB* f, const PCB* s);	//比较两个进程的优先级f>s?
+
+		//使用各种算法调度
+	static void PSArun();	//运行当前进程队列
+	static void HRRNrun();	//高相应比优先算法
+	static void SJFrun();	//短进程优先调度算法
+	static void FCFSrun();	//先来先服务调度算法
 
 
 

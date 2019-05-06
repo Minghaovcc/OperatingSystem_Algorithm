@@ -13,5 +13,57 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\生产者消费者问题">
+      <UniqueIdentifier>{58d2016e-eace-41e5-a922-bb2961e1db4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\读者写者问题">
+      <UniqueIdentifier>{fb6d188f-2090-4ae9-b7bd-cb02ce91577f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\哲学家就餐问题">
+      <UniqueIdentifier>{be429e9f-077e-46a2-8555-f351ce37359a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\读者写者问题">
+      <UniqueIdentifier>{a1f5aa52-0e04-4a88-8b55-683914b6fea1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\生产者消费者问题">
+      <UniqueIdentifier>{bd55c218-0a89-4cfb-bec2-ad2df1b70cae}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\哲学家就餐问题">
+      <UniqueIdentifier>{ebff913c-c4d5-4102-a34f-6aff5249fae8}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RW_problem.cpp">
+      <Filter>源文件\读者写者问题</Filter>
+    </ClCompile>
+    <ClCompile Include="Producer_Customer_1to1.cpp">
+      <Filter>源文件\生产者消费者问题</Filter>
+    </ClCompile>
+    <ClCompile Include="Producer_Customer_1toN.cpp">
+      <Filter>源文件\生产者消费者问题</Filter>
+    </ClCompile>
+    <ClCompile Include="Producer_Customer_Nto1.cpp">
+      <Filter>源文件\生产者消费者问题</Filter>
+    </ClCompile>
+    <ClCompile Include="Producer_Customer_NtoN.cpp">
+      <Filter>源文件\生产者消费者问题</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RW_problem.h">
+      <Filter>头文件\读者写者问题</Filter>
+    </ClInclude>
+    <ClInclude Include="Producer_Customer_1to1.h">
+      <Filter>头文件\生产者消费者问题</Filter>
+    </ClInclude>
+    <ClInclude Include="Producer_Customer_1toN.h">
+      <Filter>头文件\生产者消费者问题</Filter>
+    </ClInclude>
+    <ClInclude Include="Producer_Customer_Nto1.h">
+      <Filter>头文件\生产者消费者问题</Filter>
+    </ClInclude>
+    <ClInclude Include="Producer_Customer_NtoN.h">
+      <Filter>头文件\生产者消费者问题</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

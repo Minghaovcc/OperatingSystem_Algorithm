@@ -18,6 +18,20 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Producer_Customer_1to1.h" />
+    <ClInclude Include="Producer_Customer_1toN.h" />
+    <ClInclude Include="Producer_Customer_Nto1.h" />
+    <ClInclude Include="Producer_Customer_NtoN.h" />
+    <ClInclude Include="RW_problem.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Producer_Customer_1to1.cpp" />
+    <ClCompile Include="Producer_Customer_1toN.cpp" />
+    <ClCompile Include="Producer_Customer_Nto1.cpp" />
+    <ClCompile Include="Producer_Customer_NtoN.cpp" />
+    <ClCompile Include="RW_problem.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{54AA6D66-B52D-450C-9581-02C4859B3EBB}</ProjectGuid>

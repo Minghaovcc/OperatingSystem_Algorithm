@@ -64,19 +64,32 @@ void PCB::disp_list() {
 	cout << endl;
 }
 
-//运行当前队列的进程
-void PCB::run() {
-
+//高优先权优先调度算法运行当前队列的进程
+void PCB::PSArun() {
 	disp_list();
 	int i = 0;	//当前运行的进程数
-
 	while (size > 0) {
 		pcb_list.sort(compare_pcb);
 		PCB* pcb;
 		pcb = *pcb_list.begin();
-
 		if (!pcb->run_this()) continue;
 		cout << "Process_num:" << size << "\tRun:Process" << pcb->name << "\tStep:" << ++i << endl;
 		disp_list();
 	}
+}
+
+
+//高相应比优先算法
+void PCB::HRRNrun() {
+
+}
+
+//短进程优先调度算法
+void PCB::SJFrun(){
+
+}
+
+//先来先服务调度算法
+void PCB::FCFSrun() {
+
 }
