@@ -48,6 +48,15 @@
     <ClCompile Include="Producer_Customer_NtoN.cpp">
       <Filter>源文件\生产者消费者问题</Filter>
     </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="philosopher.cpp">
+      <Filter>源文件\哲学家就餐问题</Filter>
+    </ClCompile>
+    <ClCompile Include="philosopher_Eating.cpp">
+      <Filter>源文件\哲学家就餐问题</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RW_problem.h">
@@ -64,6 +73,9 @@
     </ClInclude>
     <ClInclude Include="Producer_Customer_NtoN.h">
       <Filter>头文件\生产者消费者问题</Filter>
+    </ClInclude>
+    <ClInclude Include="philosopher.h">
+      <Filter>头文件\哲学家就餐问题</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
