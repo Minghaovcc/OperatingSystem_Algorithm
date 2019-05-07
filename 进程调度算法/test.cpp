@@ -28,7 +28,6 @@ int main() {
 void init(int num) {
 	//进程个数
 	int time, priority;
-	//	cin >> num;
 	PCB* pcb[3];
 	while (num--) {
 		//进程需要的时间

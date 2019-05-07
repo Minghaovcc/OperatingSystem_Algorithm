@@ -4,18 +4,12 @@
 using namespace std;
 
 //³õÊ¼»¯º¯Êý
-void init(int num);
 void disp();
 
 
 int main() {
-	init();
-}
-
-
-void init(){
-	bankAlgorithm demo = bankAlgorithm();
-
+	cout << "hello";
+	return 0;
 }
 
 

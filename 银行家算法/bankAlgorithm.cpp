@@ -113,8 +113,3 @@ bool bankAlgorithm::safetyCheck() {
 void bankAlgorithm::disp() {
 	
 }
-
-
-int main() {
-	cout << "hello";
-}
