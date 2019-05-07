@@ -5,10 +5,6 @@
 
 using namespace std;
 
-int PCB::size = 0;
-list<PCB*> PCB::pcb_list;
-
-
 void init(int num);
 
 int main() {
@@ -17,9 +13,18 @@ int main() {
 	cout << "输入进程个数：" << endl;
 	cin >> num;
 	init(num);
-	cout << "=====高优先级优先调度算法=====" << endl;
+	PCB::disp_list();
+
+
+	cout << "========短作业优先调度算法========" << endl;
+	PCB::SJFrun();
+	cout << "=====动态高优先级优先调度算法=====" << endl;
 	PCB::PSArun();
-	cout << "=====高优先级优先调度算法=====" << endl;
+
+	cout << "========先到先服务调度算法========" << endl;
+	PCB::FCFSrun();
+	
+
 
 	return 0;
 }
@@ -28,7 +33,7 @@ int main() {
 void init(int num) {
 	//进程个数
 	int time, priority;
-	PCB* pcb[3];
+	PCB *pcb[3];
 	while (num--) {
 		//进程需要的时间
 		cin >> time;

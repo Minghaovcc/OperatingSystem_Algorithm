@@ -3,12 +3,18 @@
 #include <list>
 
 const int MIN = -32767;	//进程结束之后的优先级（int可以表示的最小数）
+const int MAX = 32768;
 
 using namespace std;
+
+
+int PCB::size = 0;
+list<PCB*> PCB::pcb_list;
 
 //构造函数
 PCB::PCB(int time, int priority) {
 	name = ++size;
+	number = name;
 	time_needed = time;
 	priority_number = priority;
 	state = 'R';
@@ -27,13 +33,21 @@ void PCB::disp() {
 }
 
 //比较两个进程的优先级f>s?
-bool PCB::compare_pcb(const PCB* f, const PCB* s) {
+bool PCB::compare_pcb_by_priority(const PCB* f, const PCB* s) {
 	return f->priority_number > s->priority_number;
+}
+
+bool PCB::compare_pcb_by_number(const PCB* f, const PCB* s) {
+	return f->number > s->number;
+}
+
+bool PCB::compare_pcb_by_time_needed(const PCB* f, const PCB* s) {
+	return f->time_needed < s->time_needed;
 }
 
 
 //运行当前的进程
-bool PCB::run_this() {
+bool PCB::run_this_by_priority() {
 	bool flag = false;
 	if (this->time_needed <= 0 || this->state == 'E') {
 		size--;
@@ -44,6 +58,38 @@ bool PCB::run_this() {
 		this->priority_number--;
 		this->time_needed--;
 		if (this->time_needed <= 0) this->state = 'E';
+		flag = true;
+	}
+
+	return flag;
+}
+
+bool PCB::run_this_by_number() {
+	bool flag = false;
+	if (this->time_needed <= 0 || this->state == 'E') {
+		size--;
+		this->priority_number = MIN;
+		this->state = 'E';
+		flag = false;
+	} else {
+		this->time_needed = 0;
+		if (this->time_needed <= 0) this->state = 'E';
+		flag = true;
+	}
+
+	return flag;
+}
+bool PCB::run_this_by_time_needed() {
+	bool flag = false;
+	if (this->time_needed < 0 || this->state == 'E') {
+		size--;
+		this->priority_number = MIN;
+		this->state = 'E';
+		flag = false;
+	} else {
+		this->time_needed = 0;
+
+		if (this->time_needed = 0) this->state = 'E';
 		flag = true;
 	}
 
@@ -67,29 +113,45 @@ void PCB::disp_list() {
 //高优先权优先调度算法运行当前队列的进程
 void PCB::PSArun() {
 	disp_list();
-	int i = 0;	//当前运行的进程数
+	int i = 0;	//当前运行的进程步
 	while (size > 0) {
-		pcb_list.sort(compare_pcb);
+		pcb_list.sort(compare_pcb_by_priority);
 		PCB* pcb;
 		pcb = *pcb_list.begin();
-		if (!pcb->run_this()) continue;
-		cout << "Process_num:" << size << "\tRun:Process" << pcb->name << "\tStep:" << ++i << endl;
+		if (!pcb->run_this_by_priority()) continue;
+		cout << "Process_num:" << pcb->number << "\tRun:Process" << pcb->name << "\tStep:" << ++i << endl;
 		disp_list();
 	}
 }
 
 
-//高相应比优先算法
-void PCB::HRRNrun() {
-
-}
-
-//短进程优先调度算法
-void PCB::SJFrun(){
-
-}
-
-//先来先服务调度算法
 void PCB::FCFSrun() {
+	disp_list();
+	int i = 0;	//当前运行的进程步
+	while (size > 0) {
+		pcb_list.sort(compare_pcb_by_number);
+		PCB* pcb;
+		pcb = *pcb_list.begin();
+		if (!pcb->run_this_by_number()) continue;
+		cout << "Process_num:" << pcb->number << "\tRun:Process" << pcb->name << "\tStep:" << ++i << endl;
+		disp_list();
+	}
+}
+void PCB::SJFrun() {
+	disp_list();
+	int i = 0;	//当前运行的进程步
+	
 
+	while (size > 0) {
+		pcb_list.sort(compare_pcb_by_time_needed);
+		PCB* pcb;
+		pcb = *pcb_list.begin();
+
+
+		if (!pcb->run_this_by_time_needed()) continue;
+
+
+		cout <<"Runing:Process" << pcb->name << "\tStep:" << ++i << endl;
+		disp_list();
+	}
 }
