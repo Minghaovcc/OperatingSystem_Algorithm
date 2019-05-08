@@ -20,8 +20,6 @@ PCB::PCB(int time, int priority) {
 	state = 'R';
 	pcb_list.push_back(this);
 }
-
-
 //析构函数
 PCB::~PCB() {
 	size--;
@@ -46,7 +44,7 @@ bool PCB::compare_pcb_by_time_needed(const PCB* f, const PCB* s) {
 }
 
 
-//运行当前的进程
+//运行当前的进程(动态高优先级优先调度算法)
 bool PCB::run_this_by_priority() {
 	bool flag = false;
 	if (this->time_needed <= 0 || this->state == 'E') {
@@ -58,38 +56,6 @@ bool PCB::run_this_by_priority() {
 		this->priority_number--;
 		this->time_needed--;
 		if (this->time_needed <= 0) this->state = 'E';
-		flag = true;
-	}
-
-	return flag;
-}
-
-bool PCB::run_this_by_number() {
-	bool flag = false;
-	if (this->time_needed <= 0 || this->state == 'E') {
-		size--;
-		this->priority_number = MIN;
-		this->state = 'E';
-		flag = false;
-	} else {
-		this->time_needed = 0;
-		if (this->time_needed <= 0) this->state = 'E';
-		flag = true;
-	}
-
-	return flag;
-}
-bool PCB::run_this_by_time_needed() {
-	bool flag = false;
-	if (this->time_needed < 0 || this->state == 'E') {
-		size--;
-		this->priority_number = MIN;
-		this->state = 'E';
-		flag = false;
-	} else {
-		this->time_needed = 0;
-
-		if (this->time_needed = 0) this->state = 'E';
 		flag = true;
 	}
 
@@ -119,39 +85,40 @@ void PCB::PSArun() {
 		PCB* pcb;
 		pcb = *pcb_list.begin();
 		if (!pcb->run_this_by_priority()) continue;
-		cout << "Process_num:" << pcb->number << "\tRun:Process" << pcb->name << "\tStep:" << ++i << endl;
+		cout << "Runing:Process" << pcb->name << "\tStep:" << ++i << endl;
 		disp_list();
 	}
 }
 
-
+//先来先服务调度算法
 void PCB::FCFSrun() {
 	disp_list();
 	int i = 0;	//当前运行的进程步
-	while (size > 0) {
-		pcb_list.sort(compare_pcb_by_number);
-		PCB* pcb;
+	pcb_list.sort(compare_pcb_by_time_needed);
+	PCB* pcb;
+	for (int i = 0; i < size+1; i++) {
 		pcb = *pcb_list.begin();
-		if (!pcb->run_this_by_number()) continue;
-		cout << "Process_num:" << pcb->number << "\tRun:Process" << pcb->name << "\tStep:" << ++i << endl;
+		pcb_list.push_back(pcb);
+		pcb_list.pop_front();
+		pcb->time_needed = 0;
+		pcb->state = 'E';
+		cout << "Runing:Process" << pcb->name << "\tStep:" << ++i << endl;
 		disp_list();
 	}
 }
+
+//短作业优先调度算法
 void PCB::SJFrun() {
 	disp_list();
 	int i = 0;	//当前运行的进程步
-	
-
-	while (size > 0) {
-		pcb_list.sort(compare_pcb_by_time_needed);
-		PCB* pcb;
+	pcb_list.sort(compare_pcb_by_time_needed);
+	PCB* pcb;
+	for (int i = 0; i < size; i++) {
 		pcb = *pcb_list.begin();
-
-
-		if (!pcb->run_this_by_time_needed()) continue;
-
-
-		cout <<"Runing:Process" << pcb->name << "\tStep:" << ++i << endl;
+		pcb_list.push_back(pcb);
+		pcb_list.pop_front();
+		pcb->time_needed = 0;
+		cout << "Runing:Process" << pcb->name << "\tStep:" << ++i << endl;
 		disp_list();
 	}
 }

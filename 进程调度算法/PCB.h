@@ -14,8 +14,6 @@ public:
 
 
 	bool run_this_by_priority();	//运行当前的进程(动态高优先级优先调度算法)
-	bool run_this_by_number();	//运行当前的进程(先到先服务调度算法)
-	bool run_this_by_time_needed();	//运行当前的进程(短作业优先调度算法)
 	static int size;	//队列中的进程数量
 	static list<PCB*> pcb_list;	//进程队列
 	static void disp_list();	//显示所有队列的信息
