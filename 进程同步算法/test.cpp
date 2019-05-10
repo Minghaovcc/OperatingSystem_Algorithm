@@ -1,4 +1,5 @@
 #include "philosopher.h"
+#include "Producer_Customer_1to1.h"
 #include <vector>
 
 
@@ -6,13 +7,15 @@ using namespace std;
 
 //哲学家就餐进程初始化
 void philosopher_init();
+void producer_customer_1to1_init();
 
 
 
 
 
 int main() {
-	philosopher_init();
+	//philosopher_init();
+	producer_customer_1to1_init();
 }
 
 
@@ -38,4 +41,13 @@ void philosopher_init() {
 	for (unsigned int i = 0; i < philosophers.size(); i++) {
 		philosophers_thread[i].join();
 	}
+}
+void producer_customer_1to1_init() {
+	Producer_Customer_1to1 demo = Producer_Customer_1to1();
+	std::thread producer(&Producer_Customer_1to1::producer_task,std::ref(demo));
+	std::thread customer(&Producer_Customer_1to1::customer_task,std::ref(demo));
+	producer.join();
+	customer.join();
+
+
 }

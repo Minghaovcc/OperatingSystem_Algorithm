@@ -1,8 +1,6 @@
 #ifndef PHILOSOPHER_H
 #define PHILOSOPHER_H
 #include <mutex>
-#include <chrono>
-
 
 using namespace std;
 

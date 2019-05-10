@@ -39,12 +39,6 @@
     <ClCompile Include="Producer_Customer_1to1.cpp">
       <Filter>源文件\生产者消费者问题</Filter>
     </ClCompile>
-    <ClCompile Include="Producer_Customer_1toN.cpp">
-      <Filter>源文件\生产者消费者问题</Filter>
-    </ClCompile>
-    <ClCompile Include="Producer_Customer_Nto1.cpp">
-      <Filter>源文件\生产者消费者问题</Filter>
-    </ClCompile>
     <ClCompile Include="Producer_Customer_NtoN.cpp">
       <Filter>源文件\生产者消费者问题</Filter>
     </ClCompile>
@@ -54,21 +48,12 @@
     <ClCompile Include="philosopher.cpp">
       <Filter>源文件\哲学家就餐问题</Filter>
     </ClCompile>
-    <ClCompile Include="philosopher_Eating.cpp">
-      <Filter>源文件\哲学家就餐问题</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RW_problem.h">
       <Filter>头文件\读者写者问题</Filter>
     </ClInclude>
     <ClInclude Include="Producer_Customer_1to1.h">
-      <Filter>头文件\生产者消费者问题</Filter>
-    </ClInclude>
-    <ClInclude Include="Producer_Customer_1toN.h">
-      <Filter>头文件\生产者消费者问题</Filter>
-    </ClInclude>
-    <ClInclude Include="Producer_Customer_Nto1.h">
       <Filter>头文件\生产者消费者问题</Filter>
     </ClInclude>
     <ClInclude Include="Producer_Customer_NtoN.h">
