@@ -47,15 +47,15 @@ void producer_customer_1to1_init() {
 void producer_customer_NtoN_init() {
 	Producer_Customer_NtoN demo = Producer_Customer_NtoN();
 	std::thread producer1(&Producer_Customer_NtoN::producer_task, std::ref(demo));
-	std::thread customer1(&Producer_Customer_NtoN::customer_task, std::ref(demo));
+	/*std::thread customer1(&Producer_Customer_NtoN::customer_task, std::ref(demo));
 	std::thread producer2(&Producer_Customer_NtoN::producer_task, std::ref(demo));
-	std::thread customer2(&Producer_Customer_NtoN::customer_task, std::ref(demo));
+	::thread customer2(&Producer_Customer_NtoN::customer_task, std::ref(demo));
 	std::thread producer3(&Producer_Customer_NtoN::producer_task, std::ref(demo));
-	std::thread customer3(&Producer_Customer_NtoN::customer_task, std::ref(demo));
+	std::thread customer3(&Producer_Customer_NtoN::customer_task, std::ref(demo));*/
 	producer1.join();
-	customer1.join();
-	producer2.join();
-	customer2.join();
-	producer3.join();
-	customer3.join();
+	//customer1.join();
+	//producer2.join();
+	//customer2.join();
+	//producer3.join();
+	//customer3.join();
 }

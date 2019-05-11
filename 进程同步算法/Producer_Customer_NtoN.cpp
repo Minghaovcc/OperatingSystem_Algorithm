@@ -16,7 +16,7 @@ void Producer_Customer_NtoN::producer_item(int i) {
 	//上锁
 	std::unique_lock < std::mutex> lock(buffermutex_NtoN);
 	//生产者等待“缓冲区不满”这个条件的发生
-	while ((write_position_NtoN + 1) % buffer_size_NtoN == read_position_NtoN) {
+	while ((write_position_NtoN+1) % buffer_size_NtoN == read_position_NtoN) {
 		iomutex_NtoN.lock();
 		cout << ".......生产者：在等待仓库有空余地方......." << endl;
 		iomutex_NtoN.unlock();
@@ -25,6 +25,8 @@ void Producer_Customer_NtoN::producer_item(int i) {
 	//生产者生产产品
 	buffer_NtoN[write_position_NtoN] = item;
 	write_position_NtoN++;
+
+
 	if (write_position_NtoN == buffer_size_NtoN) write_position_NtoN = 0;	//如果到了最后一个，就回到第一个，实现循环
 	//通知消费者“缓冲区不空”
 	repo_not_empty_NtoN.notify_all();
@@ -61,9 +63,13 @@ void Producer_Customer_NtoN::producer_task() {
 		
 		//加锁
 		std::unique_lock<std::mutex> lock(produced_counter_mutex_NtoN);
+		iomutex_NtoN.lock();
+		cout << "\tNo." << std::this_thread::get_id() << "\t生产者，来了！" << endl;
+		iomutex_NtoN.unlock();
 		//判断生产
 		if (produced_counter <pruduce_plan_NtoN) {
-			producer_item(++produced_counter);
+			++produced_counter;
+			producer_item(produced_counter);
 			iomutex_NtoN.lock();
 			cout << "No." << std::this_thread::get_id() << "\t生产者，生产了第" << produced_counter << "件商品！" << endl;
 			iomutex_NtoN.unlock();
@@ -84,8 +90,12 @@ void Producer_Customer_NtoN::producer_task() {
 void Producer_Customer_NtoN::customer_task() {
 	bool exit = false;
 	while (true) {
+		Sleep(3000);
 		//加锁
 		std::unique_lock<std::mutex> lock(consumed_counter_mutex_NtoN);
+		iomutex_NtoN.lock();
+		cout << "\tNo." << std::this_thread::get_id() << "\t消费者，来了！" << endl;
+		iomutex_NtoN.unlock();
 		//判断生产
 		if (consumed_counter < pruduce_plan_NtoN) {
 			int item = customer_item();
@@ -97,7 +107,7 @@ void Producer_Customer_NtoN::customer_task() {
 		}
 		//解锁
 		lock.unlock();
-		Sleep(3000);
+		//Sleep(3000);
 		iomutex_NtoN.lock();
 		cout << "\tNo." << std::this_thread::get_id() << "\t消费者，离开了！" << endl;
 		iomutex_NtoN.unlock();
