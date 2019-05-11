@@ -23,14 +23,14 @@ void Producer_Customer_1to1::producer_item(int i) {
 		iomutex.lock();
 		cout << "生产者：在等待仓库有空余地方...." << endl;
 		iomutex.unlock();
-		rope_not_full.wait(lock);
+		repo_not_full.wait(lock);
 	}
 	//生产者生产产品
 	buffer[write_position] = item;
 	write_position++;	
 	if (write_position == buffer_size) write_position = 0;	//如果到了最后一个，就回到第一个，实现循环
 	//通知消费者“缓冲区不空”
-	rope_not_empty.notify_all();
+	repo_not_empty.notify_all();
 	//解锁
 	lock.unlock();
 }
@@ -44,14 +44,14 @@ int Producer_Customer_1to1::customer_item() {
 		iomutex.lock();
 		cout << "消费者：在等待仓库有产品...." << endl;
 		iomutex.unlock();
-		rope_not_empty.wait(lock);	
+		repo_not_empty.wait(lock);	
 	}
 	//消费者消费产品
 	item = buffer[read_position];
 	read_position++;
 	if (read_position == buffer_size) read_position = 0;
 	//通知生产者“缓冲区不满”
-	rope_not_full.notify_all();
+	repo_not_full.notify_all();
 	//解锁
 	lock.unlock();
 
@@ -79,4 +79,7 @@ void Producer_Customer_1to1::customer_task() {
 		iomutex.unlock();
 	}
 }
+
+
+
 

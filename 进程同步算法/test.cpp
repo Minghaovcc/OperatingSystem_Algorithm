@@ -1,22 +1,16 @@
 #include "philosopher.h"
 #include "Producer_Customer_1to1.h"
-#include <vector>
+#include "Producer_Customer_NtoN.h"
 
 
-using namespace std;
-
-//哲学家就餐进程初始化
 void philosopher_init();
 void producer_customer_1to1_init();
 void producer_customer_NtoN_init();
 
-
-
-
-
 int main() {
 	//philosopher_init();
-	producer_customer_1to1_init();
+	//producer_customer_1to1_init();
+	producer_customer_NtoN_init();
 }
 
 
@@ -29,7 +23,7 @@ void philosopher_init() {
 
 	//初始化所以哲学家，并将所以哲学家放入到哲学家数组中
 	for (int i = 0; i < philosopherNum - 1; i++) {
-		philosopher philosopher_demo = philosopher(i+1);
+		philosopher philosopher_demo = philosopher(i + 1);
 		philosophers.push_back(philosopher_demo);
 	}
 
@@ -45,22 +39,19 @@ void philosopher_init() {
 }
 void producer_customer_1to1_init() {
 	Producer_Customer_1to1 demo = Producer_Customer_1to1();
-	std::thread producer(&Producer_Customer_1to1::producer_task,std::ref(demo));
-	std::thread customer(&Producer_Customer_1to1::customer_task,std::ref(demo));
+	std::thread producer(&Producer_Customer_1to1::producer_task, std::ref(demo));
+	std::thread customer(&Producer_Customer_1to1::customer_task, std::ref(demo));
 	producer.join();
 	customer.join();
-
-
 }
-
 void producer_customer_NtoN_init() {
-	Producer_Customer_1to1 demo = Producer_Customer_1to1();
-	std::thread producer1(&Producer_Customer_1to1::producer_task, std::ref(demo));
-	std::thread customer1(&Producer_Customer_1to1::customer_task, std::ref(demo));
-	std::thread producer2(&Producer_Customer_1to1::producer_task, std::ref(demo));
-	std::thread customer2(&Producer_Customer_1to1::customer_task, std::ref(demo));
-	std::thread producer3(&Producer_Customer_1to1::producer_task, std::ref(demo));
-	std::thread customer3(&Producer_Customer_1to1::customer_task, std::ref(demo));
+	Producer_Customer_NtoN demo = Producer_Customer_NtoN();
+	std::thread producer1(&Producer_Customer_NtoN::producer_task, std::ref(demo));
+	std::thread customer1(&Producer_Customer_NtoN::customer_task, std::ref(demo));
+	std::thread producer2(&Producer_Customer_NtoN::producer_task, std::ref(demo));
+	std::thread customer2(&Producer_Customer_NtoN::customer_task, std::ref(demo));
+	std::thread producer3(&Producer_Customer_NtoN::producer_task, std::ref(demo));
+	std::thread customer3(&Producer_Customer_NtoN::customer_task, std::ref(demo));
 	producer1.join();
 	customer1.join();
 	producer2.join();

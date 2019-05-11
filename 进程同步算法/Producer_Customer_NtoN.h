@@ -1,29 +1,35 @@
 #ifndef PRODUCER_CUSTOMER_NTON
 #define PRODUCER_CUSTOMER_NTON
+
+
 #include <iostream>
 #include <thread>
 #include <mutex>
 #include <condition_variable>
-static const int buffer_size = 10;
-static const int pruduce_plan = 10;
+static const int buffer_size_NtoN = 10;
+static const int pruduce_plan_NtoN = 300;
+static int buffer_NtoN[buffer_size_NtoN];
+static int read_position_NtoN;
+static int write_position_NtoN;
+static int produced_counter;
+static int consumed_counter;
+static std::mutex buffermutex_NtoN;
+static std::mutex iomutex_NtoN;
+static std::mutex produced_counter_mutex_NtoN;
+static std::mutex consumed_counter_mutex_NtoN;
+static std::condition_variable repo_not_full_NtoN;
+static std::condition_variable repo_not_empty_NtoN;
 
 class Producer_Customer_NtoN {
 public:
-
-
-private:
-
-	int bufffer[buffer_size];
-	int read_position;
-	int wirte_position;
-	int produced_counter;
-	int consumed_counter;
-	std::mutex mutex;
-	std::mutex produced_counter_mutex;
-	std::mutex consumed_counter_mutex;
-	std::condition_variable repo_not_full;
-	std::condition_variable repo_not_empty;
+	Producer_Customer_NtoN();
+	void producer_item(int i);
+	int customer_item();
+	void producer_task();
+	void customer_task();
 };
+
+
 
 
 #endif // !PRODUCER_CUSTOMER_NTON

@@ -1,6 +1,7 @@
 #ifndef PHILOSOPHER_H
 #define PHILOSOPHER_H
 #include <mutex>
+#include <vector>
 
 using namespace std;
 
