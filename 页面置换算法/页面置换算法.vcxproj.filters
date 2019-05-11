@@ -13,5 +13,96 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="头文件\先进先出置换算法FIFO">
+      <UniqueIdentifier>{405bef5f-7c24-4ce8-8dda-541e1371a9d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\最近最少使用置换算法LRU">
+      <UniqueIdentifier>{3acc51bf-8a8c-4447-9493-ef2009a3cfe5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\最不常使用置换算法LFU">
+      <UniqueIdentifier>{64e479cd-681c-4173-9d97-86c4fe6b7203}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\时钟置换算法CLOCK">
+      <UniqueIdentifier>{34ba74ab-5195-453b-84da-2231efa45ee2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\改进的时钟置换算法CLOCL">
+      <UniqueIdentifier>{bfe35199-432c-4072-a906-baa662a8d206}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\先进先出置换算法FIFO">
+      <UniqueIdentifier>{d71bd6df-1218-4247-8c20-cfd91b0c5533}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\改进的时钟置换算法CLOCL">
+      <UniqueIdentifier>{0b5b28f8-8bbb-420d-b3ed-a21aab31803d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\时钟置换算法CLOCK">
+      <UniqueIdentifier>{252c8b86-a181-41d2-bda3-b60191c44ed3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\最近最少使用置换算法LRU">
+      <UniqueIdentifier>{66bbb555-56db-40fa-8179-4d7194c1f8c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\最不常使用置换算法LFU">
+      <UniqueIdentifier>{d5f8e4f1-809e-41da-b2d4-cf03d8901dba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="源文件\数据结构">
+      <UniqueIdentifier>{de9bb027-14a6-4e7c-b3f9-57d0d63a8ef1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="头文件\数据结构">
+      <UniqueIdentifier>{2467c1ad-d3ee-4305-9e6c-bee53340be05}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="CLOCK.h">
+      <Filter>头文件\时钟置换算法CLOCK</Filter>
+    </ClInclude>
+    <ClInclude Include="CLOCK_Plus.h">
+      <Filter>头文件\改进的时钟置换算法CLOCL</Filter>
+    </ClInclude>
+    <ClInclude Include="FIFO.h">
+      <Filter>头文件\先进先出置换算法FIFO</Filter>
+    </ClInclude>
+    <ClInclude Include="LFU.h">
+      <Filter>头文件\最不常使用置换算法LFU</Filter>
+    </ClInclude>
+    <ClInclude Include="LRU.h">
+      <Filter>头文件\最近最少使用置换算法LRU</Filter>
+    </ClInclude>
+    <ClInclude Include="page_manager.h">
+      <Filter>头文件\数据结构</Filter>
+    </ClInclude>
+    <ClInclude Include="my_queue.h">
+      <Filter>头文件\数据结构</Filter>
+    </ClInclude>
+    <ClInclude Include="my_stack.h">
+      <Filter>头文件\数据结构</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CLOCK.cpp">
+      <Filter>源文件\时钟置换算法CLOCK</Filter>
+    </ClCompile>
+    <ClCompile Include="CLOCK_Plus.cpp">
+      <Filter>源文件\改进的时钟置换算法CLOCL</Filter>
+    </ClCompile>
+    <ClCompile Include="FIFO.cpp">
+      <Filter>源文件\先进先出置换算法FIFO</Filter>
+    </ClCompile>
+    <ClCompile Include="LFU.cpp">
+      <Filter>源文件\最不常使用置换算法LFU</Filter>
+    </ClCompile>
+    <ClCompile Include="LRU.cpp">
+      <Filter>源文件\最近最少使用置换算法LRU</Filter>
+    </ClCompile>
+    <ClCompile Include="test.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="page_manager.cpp">
+      <Filter>源文件\数据结构</Filter>
+    </ClCompile>
+    <ClCompile Include="my_queue.cpp">
+      <Filter>源文件\数据结构</Filter>
+    </ClCompile>
+    <ClCompile Include="my_stack.cpp">
+      <Filter>源文件\数据结构</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

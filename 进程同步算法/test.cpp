@@ -57,6 +57,14 @@ void producer_customer_NtoN_init() {
 	Producer_Customer_1to1 demo = Producer_Customer_1to1();
 	std::thread producer1(&Producer_Customer_1to1::producer_task, std::ref(demo));
 	std::thread customer1(&Producer_Customer_1to1::customer_task, std::ref(demo));
+	std::thread producer2(&Producer_Customer_1to1::producer_task, std::ref(demo));
+	std::thread customer2(&Producer_Customer_1to1::customer_task, std::ref(demo));
+	std::thread producer3(&Producer_Customer_1to1::producer_task, std::ref(demo));
+	std::thread customer3(&Producer_Customer_1to1::customer_task, std::ref(demo));
 	producer1.join();
 	customer1.join();
+	producer2.join();
+	customer2.join();
+	producer3.join();
+	customer3.join();
 }

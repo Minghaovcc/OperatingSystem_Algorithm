@@ -139,6 +139,25 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="CLOCK.h" />
+    <ClInclude Include="CLOCK_Plus.h" />
+    <ClInclude Include="FIFO.h" />
+    <ClInclude Include="LFU.h" />
+    <ClInclude Include="LRU.h" />
+    <ClInclude Include="my_queue.h" />
+    <ClInclude Include="my_stack.h" />
+    <ClInclude Include="page_manager.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="CLOCK.cpp" />
+    <ClCompile Include="CLOCK_Plus.cpp" />
+    <ClCompile Include="FIFO.cpp" />
+    <ClCompile Include="LFU.cpp" />
+    <ClCompile Include="LRU.cpp" />
+    <ClCompile Include="my_queue.cpp" />
+    <ClCompile Include="my_stack.cpp" />
+    <ClCompile Include="page_manager.cpp" />
+    <ClCompile Include="test.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
