@@ -8,6 +8,7 @@ using namespace std;
 //哲学家就餐进程初始化
 void philosopher_init();
 void producer_customer_1to1_init();
+void producer_customer_NtoN_init();
 
 
 
@@ -50,4 +51,12 @@ void producer_customer_1to1_init() {
 	customer.join();
 
 
+}
+
+void producer_customer_NtoN_init() {
+	Producer_Customer_1to1 demo = Producer_Customer_1to1();
+	std::thread producer1(&Producer_Customer_1to1::producer_task, std::ref(demo));
+	std::thread customer1(&Producer_Customer_1to1::customer_task, std::ref(demo));
+	producer1.join();
+	customer1.join();
 }

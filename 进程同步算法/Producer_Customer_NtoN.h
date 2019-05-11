@@ -4,15 +4,15 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
-
+static const int buffer_size = 10;
+static const int pruduce_plan = 10;
 
 class Producer_Customer_NtoN {
 public:
 
 
 private:
-	static const int buffer_size = 10;
-	static const int pruduce_plan = 10;
+
 	int bufffer[buffer_size];
 	int read_position;
 	int wirte_position;
