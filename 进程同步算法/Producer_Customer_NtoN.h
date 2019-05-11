@@ -6,8 +6,8 @@
 #include <thread>
 #include <mutex>
 #include <condition_variable>
-static const int buffer_size_NtoN = 10;
-static const int pruduce_plan_NtoN = 300;
+static const int buffer_size_NtoN = 11;
+static const int pruduce_plan_NtoN = 150;
 static int buffer_NtoN[buffer_size_NtoN];
 static int read_position_NtoN;
 static int write_position_NtoN;
