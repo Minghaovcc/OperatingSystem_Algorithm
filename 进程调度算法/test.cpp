@@ -9,10 +9,10 @@ void init();
 
 int main() {
 	init();
-	cout << "========先到先服务调度算法========" << endl;
+	/*cout << "========先到先服务调度算法========" << endl;
 	PCB::FCFSrun();
 	cout << "========短作业优先调度算法========" << endl;
-	PCB::SJFrun();
+	PCB::SJFrun();*/
 	cout << "=====动态高优先级优先调度算法=====" << endl;
 	PCB::PSArun();
 	return 0;

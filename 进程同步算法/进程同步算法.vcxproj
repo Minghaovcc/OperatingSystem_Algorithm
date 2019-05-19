@@ -22,13 +22,11 @@
     <ClInclude Include="philosopher.h" />
     <ClInclude Include="Producer_Customer_1to1.h" />
     <ClInclude Include="Producer_Customer_NtoN.h" />
-    <ClInclude Include="RW_problem.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="philosopher.cpp" />
     <ClCompile Include="Producer_Customer_1to1.cpp" />
     <ClCompile Include="Producer_Customer_NtoN.cpp" />
-    <ClCompile Include="RW_problem.cpp" />
     <ClCompile Include="test.cpp" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
