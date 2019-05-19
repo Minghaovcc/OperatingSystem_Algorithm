@@ -1,6 +1,13 @@
 # OperatingSystem_Algorithm
 一些操作系统算法的C++实现 （银行家算法、进程同步算法、进程调度算法）
 
+System：Windows 10 1809 professional
+
+IDE:Visual Studio 2017
+
+Language:C++(使用部分C++11的特性)
+
+
 
 ## 银行家算法
 参考计算机操作系统（汤小丹）银行家算法
